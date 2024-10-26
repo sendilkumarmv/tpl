@@ -8,4 +8,8 @@ The difference between `TaskFactory.StartNew(() => LongRunning())` and `var task
 
 `var t = new Task(() => {}, state);`
 
+`var t = new Task(() => {}, state, cancellationToken);`
+
 `var t = new Task(() => {}, state, taskCreationOptions);`
+
+`var t = new Task(() => {}, state, cancellationToken, taskCreationOptions);`
