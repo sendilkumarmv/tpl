@@ -1,1 +1,1 @@
-Difference between `TaskFactory.StartNew(() => LongRunning())` and `task.Start()` is only the control over task when to start.
+The difference between `TaskFactory.StartNew(() => LongRunning())` and `task.Start()` is only the control over when the task starts.
