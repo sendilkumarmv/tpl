@@ -5,6 +5,7 @@ The difference between `TaskFactory.StartNew(() => LongRunning())` and `var task
 `var t = new Task(() => {} );`
 
 `var t = new Task(() => {}, cancellationToken);`
+Refer file
 
 `var t = new Task(() => {}, taskCreationOptions);`
 
@@ -30,7 +31,7 @@ Console.WriteLine("Task completed.");
 ```
 
 
-`var t = new Task(() => {}, state);`
+`var t = new Task((state) => {}, state);`
 
 e.g
 ```
@@ -47,11 +48,11 @@ task.Wait(); // Wait for the task to complete
 Console.WriteLine("Task completed.");
 ```
 
-`var t = new Task(() => {}, state, cancellationToken);`
+`var t = new Task((state) => {}, state, cancellationToken);`
 
-`var t = new Task(() => {}, state, taskCreationOptions);`
+`var t = new Task((state) => {}, state, taskCreationOptions);`
 
-`var t = new Task(() => {}, state, cancellationToken, taskCreationOptions);`
+`var t = new Task((state) => {}, state, cancellationToken, taskCreationOptions);`
 
 
 
