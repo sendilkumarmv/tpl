@@ -8,14 +8,6 @@ The difference between `TaskFactory.StartNew(() => LongRunning())` and `var task
 
 `var t = new Task(() => {}, taskCreationOptions);`
 
-`var t = new Task(() => {}, state);`
-
-`var t = new Task(() => {}, state, cancellationToken);`
-
-`var t = new Task(() => {}, state, taskCreationOptions);`
-
-`var t = new Task(() => {}, state, cancellationToken, taskCreationOptions);`
-
 TaskCreationOptions  - Most options are controlling the behavior of the task.
   1. None: The default option.
   2. PreferFairness: Indicates that task should be scheduled in a fair manner.
@@ -25,6 +17,7 @@ TaskCreationOptions  - Most options are controlling the behavior of the task.
   6. HideScheduler: Prevents the task from being scheduled by the default scheduler.
   7. RunContinuationsAsynchronously: Forces continuations added to the current task to be executed asynchronously.
 
+e.g
 ```
 Task task = new Task(() => {
     Console.WriteLine("Task running...");
@@ -35,3 +28,32 @@ task.Wait(); // Wait for the task to complete
 
 Console.WriteLine("Task completed.");
 ```
+
+
+`var t = new Task(() => {}, state);`
+
+e.g
+```
+// Create and start a task with state
+Task task = new Task((state) =>
+{
+    string message = (string)state;
+    Console.WriteLine($"Task received message: {message}");
+}, "Hello, Task!");
+
+task.Start();
+task.Wait(); // Wait for the task to complete
+
+Console.WriteLine("Task completed.");
+```
+
+`var t = new Task(() => {}, state, cancellationToken);`
+
+`var t = new Task(() => {}, state, taskCreationOptions);`
+
+`var t = new Task(() => {}, state, cancellationToken, taskCreationOptions);`
+
+
+
+
+
