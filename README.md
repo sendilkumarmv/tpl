@@ -1,5 +1,11 @@
 The difference between `TaskFactory.StartNew(() => LongRunning())` and `var task = new Task(()=> LongRunning()); task.Start()` is only the control over when the task starts.
 
+`Task.Run` is the simplest and most straightforward way to start a task. It's ideal for most scenarios where you need to run a piece of code asynchronously.
+
+`TaskFactory.StartNew` provides more control and flexibility, making it suitable for advanced scenarios where specific task options or configurations are required.
+
+`new Task` is for scenarios where you need to create a task and start it separately. This approach provides full control over task lifecycle management.
+
 ## Constructors of `Task`
 
 `var t = new Task(() => {} );`
